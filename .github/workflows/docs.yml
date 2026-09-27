@@ -1,0 +1,33 @@
+name: Knot Documentation
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  merge_group:
+  workflow_dispatch:
+
+concurrency:
+  group: knot-docs-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  docs:
+    name: Documentation integrity
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v6
+      - name: Check required documentation
+        shell: bash
+        run: |
+          set -euo pipefail
+          for file in README.md AGENTS.md CONTRIBUTING.md docs/DESIGN.md docs/DEVELOPMENT.md docs/STACK.md docs/COORDINATION.md; do
+            test -s "$file"
+          done
+          rg -q '^# ' README.md
+          rg -q 'Cross-Repository Coordination' docs/COORDINATION.md
