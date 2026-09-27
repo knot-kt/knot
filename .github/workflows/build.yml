@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'knot-core/**'
+      - 'knot-cli/**'
       - 'examples/**'
       - '*.gradle.kts'
       - 'gradle/**'
@@ -15,6 +16,7 @@ on:
     branches: [main]
     paths:
       - 'knot-core/**'
+      - 'knot-cli/**'
       - 'examples/**'
       - '*.gradle.kts'
       - 'gradle/**'
@@ -42,4 +44,11 @@ jobs:
           distribution: temurin
           java-version: '21'
       - uses: gradle/actions/setup-gradle@017a9effdb900e5b5b2fddfb590a105619dca3c3 # v4.4.2
-      - run: ./gradlew check :examples:idempotency-demo:run --no-daemon --console=plain
+      - run: ./gradlew check :knot-cli:test :examples:idempotency-demo:run --no-daemon --console=plain
+      - name: Verify generated Android and Ktor template
+        shell: bash
+        run: |
+          set -euo pipefail
+          ./gradlew :knot-cli:run --args="init --dir $RUNNER_TEMP" --no-daemon --console=plain
+          cd "$RUNNER_TEMP/knot-app"
+          ./gradlew check :androidApp:assembleDebug --no-daemon --console=plain

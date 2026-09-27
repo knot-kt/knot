@@ -1,5 +1,6 @@
 pluginManagement {
     repositories {
+        google()
         mavenCentral()
         gradlePluginPortal()
     }
@@ -8,12 +9,14 @@ pluginManagement {
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
+        google()
         mavenCentral()
     }
 }
 
-rootProject.name = "knot"
+rootProject.name = "__PROJECT_NAME__"
 
-include(":knot-core")
-include(":examples:idempotency-demo")
-include(":knot-cli")
+include(":contracts")
+include(":shared")
+include(":server")
+include(":androidApp")

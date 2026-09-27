@@ -6,7 +6,7 @@
 
 ## 当前定位
 
-Knot 当前处于早期实验阶段，没有已发布的框架、稳定 API 或开箱即用的 `init` 命令。仓库已经包含第一批可构建的纯 Kotlin 核心代码，目标是把真实应用中验证过的工程结构、基础组件和开发方法沉淀为可复用脚手架。
+Knot 当前处于早期实验阶段，尚未发布稳定 API 或正式版本。仓库已经包含可构建的纯 Kotlin 核心代码，以及可生成最小 Android + Ktor 项目的实验性 `init` CLI。
 
 CS26 是首个验证场景，也是毕业设计的实际交付物。先让 CS26 完成登录、动态、聊天、校园通知，再逐步提取可复用能力。最佳实践是需要通过测试、运行记录和文档证明的目标，不是当前已获得的结论。
 
@@ -39,13 +39,17 @@ Knot 提供工程约定和通用能力；CS26 定义校园场景、产品交互�
 
 ## 本地运行
 
-使用 JDK 21 和提交的 Gradle Wrapper 构建核心模块与第二个示例：
+使用 JDK 21 和提交的 Gradle Wrapper 构建核心模块、CLI 和第二个示例：
 
 ```bash
-./gradlew check :examples:idempotency-demo:run
+./gradlew check :knot-cli:test :examples:idempotency-demo:run
+./gradlew :knot-cli:installDist
+./knot-cli/build/install/knot/bin/knot init
+cd knot-app
+./gradlew check :androidApp:assembleDebug
 ```
 
-当前命令验证 `knot-core` 的幂等缓存和 `idempotency-demo` 示例；`knot init` 仍处于后续阶段。
+`knot init` 默认在当前目录生成名为 `knot-app` 的 `android-ktor` 模板，目标目录必须不存在或为空。生成项目包含 `contracts`、`shared`、`server`、`androidApp`、Wrapper 和双语开发说明；需要自定义目录时可使用 `knot init my-app --dir <parent>`。
 
 ## 开源发布
 

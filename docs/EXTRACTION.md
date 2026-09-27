@@ -31,6 +31,6 @@ Knot 只接收已经在 CS26 中通过测试、具有明确边界并有第二个
 
 ## Current status / 当前状态
 
-`knot-core` now contains an experimental `IdempotencyCache` with unit tests and a separate `idempotency-demo` rebuild. It is a candidate implementation, not a promoted release: CS26 has not yet upgraded to a tagged Knot version, and the cache still needs a CS26 integration PR plus cross-repository compatibility evidence.
+`knot-core` now contains an experimental `IdempotencyCache` with unit tests and a separate `idempotency-demo` rebuild. Knot also has an experimental `knot init` CLI whose generated `android-ktor` template has passed a local Android/Ktor build. These are verified candidates, not a promoted release: CS26 has not yet upgraded to a tagged Knot version, and cross-repository compatibility evidence is still required.
 
-`knot-core` 现在包含带单元测试的实验性 `IdempotencyCache`，并有独立的 `idempotency-demo` 可重建示例。这仍是候选实现，不是正式发布能力：CS26 尚未升级到 Knot 标签版本，还需要 CS26 集成 PR 和跨仓库兼容性证据。
+`knot-core` 现在包含带单元测试的实验性 `IdempotencyCache`，并有独立的 `idempotency-demo` 可重建示例。Knot 还包含实验性的 `knot init` CLI，生成的 `android-ktor` 模板已经通过本地 Android/Ktor 构建。这些仍是候选能力，不是正式发布：CS26 尚未升级到 Knot 标签版本，还需要跨仓库兼容性证据。
