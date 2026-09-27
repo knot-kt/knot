@@ -31,6 +31,6 @@ Knot 只接收已经在 CS26 中通过测试、具有明确边界并有第二个
 
 ## Current status / 当前状态
 
-No candidate is promoted yet. The first extraction should happen after CS26 completes its Android chat, notice delivery, and acceptance evidence. Until then, Knot documents the target API and keeps its main branch design-only.
+`knot-core` now contains an experimental `IdempotencyCache` with unit tests and a separate `idempotency-demo` rebuild. It is a candidate implementation, not a promoted release: CS26 has not yet upgraded to a tagged Knot version, and the cache still needs a CS26 integration PR plus cross-repository compatibility evidence.
 
-当前还没有候选能力正式提取。第一批提取应在 CS26 完成 Android 聊天、通知送达和验收证据后进行。在此之前，Knot 只维护目标 API 和设计文档，主分支保持设计阶段。
+`knot-core` 现在包含带单元测试的实验性 `IdempotencyCache`，并有独立的 `idempotency-demo` 可重建示例。这仍是候选实现，不是正式发布能力：CS26 尚未升级到 Knot 标签版本，还需要 CS26 集成 PR 和跨仓库兼容性证据。

@@ -32,7 +32,7 @@ The first template uses the verified CS26 boundaries without campus entities:
 3. **Example rebuild**: create a second small example from the template and keep CS26 independent.
 4. **Versioned release**: publish a `v0.x.y` tag only after the template and generated example pass checks.
 
-当前仓库仍处于第一阶段之前的设计状态；README 不声称 `knot init` 已可用。CLI 实现完成前，可以使用临时的 Gradle composite build 验证提取边界，但不能把 composite build 当作脚手架发布。
+当前仓库已经有可构建的核心模块和第二个示例，但 `knot init` CLI 仍未实现。README 不声称该命令已可用。CLI 实现完成前，可以使用临时的 Gradle composite build 验证提取边界，但不能把 composite build 当作脚手架发布。
 
 ## Acceptance / 验收
 
