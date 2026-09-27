@@ -29,5 +29,5 @@ jobs:
           for file in README.md AGENTS.md CONTRIBUTING.md docs/DESIGN.md docs/DEVELOPMENT.md docs/STACK.md docs/COORDINATION.md; do
             test -s "$file"
           done
-grep -Eq '^# ' README.md
-grep -Eq 'Cross-Repository Coordination' docs/COORDINATION.md
+          grep -Eq '^# ' README.md
+          grep -Eq 'Cross-Repository Coordination' docs/COORDINATION.md
