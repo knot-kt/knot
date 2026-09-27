@@ -29,6 +29,7 @@ CS26 是首个验证场景，也是毕业设计的实际交付物。先让 CS26 
 - [设计边界](docs/DESIGN.md)
 - [演进与开发约定](docs/DEVELOPMENT.md)
 - [双仓库协同与 CI / Cross-Repository Coordination and CI](docs/COORDINATION.md)
+- [能力提取 / Reuse Extraction](docs/EXTRACTION.md)
 - [贡献指南 / Contributing](CONTRIBUTING.md)
 
 ## 项目关系
