@@ -5,8 +5,8 @@
 Knot 的长期交付形态是一个可复现的初始化命令：
 
 ```text
-knot init campus-app --template android-ktor
-cd campus-app
+knot init
+cd knot-app
 ./gradlew check :androidApp:assembleDebug
 ```
 
@@ -32,10 +32,14 @@ The first template uses the verified CS26 boundaries without campus entities:
 3. **Example rebuild**: create a second small example from the template and keep CS26 independent.
 4. **Versioned release**: publish a `v0.x.y` tag only after the template and generated example pass checks.
 
-当前仓库已经有可构建的核心模块和第二个示例，但 `knot init` CLI 仍未实现。README 不声称该命令已可用。CLI 实现完成前，可以使用临时的 Gradle composite build 验证提取边界，但不能把 composite build 当作脚手架发布。
+当前仓库已经有可构建的核心模块、第二个示例和实验性 `knot` CLI。可以使用 `./gradlew :knot-cli:installDist` 后的 `knot-cli/build/install/knot/bin/knot init` 生成模板；正式版本、包发布和更多模板仍未完成。
 
 ## Acceptance / 验收
 
-Every template change must record the generated tree, the exact command, and build output. CI runs template verification only on relevant Knot pull requests, while generated projects use the same pinned toolchain. A failed optional provider must not prevent the generated baseline from starting.
+Every template change must record the generated tree, the exact command, and build output. Relevant Knot pull requests run the CLI test and a generated-project build; generated projects use the same pinned toolchain. A failed optional provider must not prevent the generated baseline from starting.
 
-每次模板变更都记录生成目录、完整命令和构建结果。只有相关 Knot PR 执行模板检查；生成项目使用同一套固定工具链。可选供应商失败不能阻塞基础项目启动。
+每次模板变更都记录生成目录、完整命令和构建结果。相关 Knot PR 会运行 CLI 测试和生成项目构建；生成项目使用同一套固定工具链。可选供应商失败不能阻塞基础项目启动。
+
+The first generated-project run is recorded in [`docs/evidence/init-20260928.md`](evidence/init-20260928.md).
+
+首轮生成项目构建记录在 [`docs/evidence/init-20260928.md`](evidence/init-20260928.md)。
